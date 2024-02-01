@@ -1,6 +1,7 @@
 package com.bookbud.springbootlibrary.controller;
 
 import com.bookbud.springbootlibrary.entity.Message;
+import com.bookbud.springbootlibrary.requestmodels.AdminQuestionRequest;
 import com.bookbud.springbootlibrary.service.MessagesService;
 import com.bookbud.springbootlibrary.utils.ExtractJWT;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +23,17 @@ public class MessagesController {
                             @RequestBody Message messageRequest) {
         String userEmail = ExtractJWT.payloadJWTExtraction(token, "\"sub\"");
         messagesService.postMessage(messageRequest, userEmail);
+    }
+
+    @PutMapping("/secure/admin/message")
+    public void putMessage(@RequestHeader(value="Authorization") String token,
+                           @RequestBody AdminQuestionRequest adminQuestionRequest) throws Exception {
+        String userEmail = ExtractJWT.payloadJWTExtraction(token, "\"sub\"");
+        String admin = ExtractJWT.payloadJWTExtraction(token, "\"userType\"");
+        if (admin == null || !admin.equals("admin")) {
+            throw new Exception("Administration page only.");
+        }
+        messagesService.putMessage(adminQuestionRequest, userEmail);
     }
 
 }
