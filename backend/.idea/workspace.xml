@@ -55,7 +55,7 @@
 }</component>
   <component name="RunManager">
     <configuration name="SpringBootLibraryApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <module name="spring-boot-library" />
+      <module name="backend" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.bookbud.springbootlibrary.SpringBootLibraryApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -74,6 +74,8 @@
       <workItem from="1706537765605" duration="12000" />
       <workItem from="1706537788279" duration="95000" />
       <workItem from="1706686584506" duration="9000" />
+      <workItem from="1709215653607" duration="100000" />
+      <workItem from="1709216309765" duration="38000" />
     </task>
     <servers />
   </component>
